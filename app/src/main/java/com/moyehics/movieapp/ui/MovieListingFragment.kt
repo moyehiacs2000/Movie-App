@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.moyehics.movieapp.R
 import com.moyehics.movieapp.databinding.FragmentMovieListingBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MovieListingFragment : Fragment() {
     val TAG:String="MovieListingFragment"
     lateinit var binding:FragmentMovieListingBinding
