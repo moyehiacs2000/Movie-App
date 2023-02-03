@@ -8,8 +8,8 @@ import com.moyehics.movieapp.data.room.entities.MovieCategory
 data class MovieCategoryWithMovies(
     @Embedded val movieCategory: MovieCategory,
     @Relation(
-        parentColumn = "movieCategoryID",
-        entityColumn = "movieCategoryID"
+        parentColumn = "movieCategoryName",
+        entityColumn = "movieCategoryName"
     )
     val movies:List<Movie>
 )

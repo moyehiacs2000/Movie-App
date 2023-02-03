@@ -10,7 +10,7 @@ interface MovieDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovieCategory(movieCategory: MovieCategory)
 
-    @Query("select * from moviecategory")
+    @Query("select * from moviecategory order by movieCategoryName")
     fun getAllCategories(): LiveData<List<MovieCategory>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -20,6 +20,6 @@ interface MovieDao {
     suspend fun deleteMovie(movie:Movie)
 
     @Transaction
-    @Query("Select * from moviecategory where movieCategoryID=:movieCategoryID")
-     fun getMovieCategoryWithMovies(movieCategoryID:Int):LiveData<List<MovieCategoryWithMovies>>
+    @Query("Select * from moviecategory where movieCategoryName=:movieCategoryName")
+     fun getMovieCategoryWithMovies(movieCategoryName:String):LiveData<List<MovieCategoryWithMovies>>
 }

@@ -5,7 +5,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class MovieCategory(
-    @PrimaryKey(autoGenerate = true)
-    var movieCategoryID : Int=0,
+    @PrimaryKey(autoGenerate = false)
     val movieCategoryName : String
 )

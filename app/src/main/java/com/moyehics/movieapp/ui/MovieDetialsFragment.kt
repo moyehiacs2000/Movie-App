@@ -18,7 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MovieDetialsFragment : Fragment() {
     lateinit var binding:FragmentMovieDetialsBinding
     val args : MovieDetialsFragmentArgs by navArgs()
-    var categoryID=0
+    var categoryName=""
     var movie: Movie?=null
     private val viewModel:MovieViewModel by viewModels()
     override fun onCreateView(
@@ -31,7 +31,7 @@ class MovieDetialsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        categoryID = args.categoryID
+        categoryName = args.categoryName
         movie=args.movie
         if(movie!=null){
             binding.movieNameEditeText.setText(movie?.name)
@@ -39,13 +39,13 @@ class MovieDetialsFragment : Fragment() {
         }
         binding.icBack.setOnClickListener {
             val bundle = Bundle().apply {
-                putInt("categoryID", categoryID)
+                putString("categoryName", categoryName)
             }
             findNavController().navigate(R.id.action_movieDetialsFragment_to_movieListingFragment,bundle)
         }
         binding.icDone.setOnClickListener {
             val bundle = Bundle().apply {
-                putInt("categoryID", categoryID)
+                putString("categoryName", categoryName)
             }
             if(validation()&&movie!=null) {
                 movie?.name = binding.movieNameEditeText.text.toString()
@@ -59,7 +59,7 @@ class MovieDetialsFragment : Fragment() {
                         Movie(
                             name = binding.movieNameEditeText.text.toString(),
                             description = binding.movieDescEditeText.text.toString(),
-                            movieCategoryID = categoryID
+                            movieCategoryName = categoryName
                         )
                     )
                 snackBar("New Movie  Added Successfully")

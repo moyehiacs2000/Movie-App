@@ -5,18 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.Snackbar
 import com.moyehics.movieapp.R
-import com.moyehics.movieapp.adapter.MovieCategoryAdapter
 import com.moyehics.movieapp.adapter.MoviesAdapter
-import com.moyehics.movieapp.data.room.entities.Movie
 import com.moyehics.movieapp.databinding.FragmentMovieListingBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,7 +23,7 @@ class MovieListingFragment : Fragment() {
     private val viewModel:MovieViewModel by viewModels()
     lateinit var moviesAdapter:MoviesAdapter
     val args : MovieListingFragmentArgs by navArgs()
-    var categoryID=0
+    var categoryName=""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,7 +35,7 @@ class MovieListingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        categoryID=args.categoryID
+        categoryName=args.categoryName
         setUpRecyclerView()
         observer()
         binding.icBack.setOnClickListener {
@@ -47,14 +43,14 @@ class MovieListingFragment : Fragment() {
         }
         binding.icAdd.setOnClickListener {
             val bundle = Bundle().apply {
-                putInt("categoryID", categoryID)
+                putString("categoryName", categoryName)
                 putSerializable("movie",null)
             }
             findNavController().navigate(R.id.action_movieListingFragment_to_movieDetialsFragment,bundle)
         }
         moviesAdapter.setOnEditClickListener {
             val bundle = Bundle().apply {
-                putInt("categoryID", categoryID)
+                putString("categoryName", categoryName)
                 putSerializable("movie",it)
             }
             findNavController().navigate(R.id.action_movieListingFragment_to_movieDetialsFragment,bundle)
@@ -70,7 +66,7 @@ class MovieListingFragment : Fragment() {
         }
     }
     private fun observer() {
-        viewModel.getMoviesWithSpecificCategory(categoryID).observe(viewLifecycleOwner){
+        viewModel.getMoviesWithSpecificCategory(categoryName).observe(viewLifecycleOwner){
             moviesAdapter.differ.submitList(it[0].movies)
         }
     }
