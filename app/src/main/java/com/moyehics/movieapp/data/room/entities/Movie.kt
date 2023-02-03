@@ -10,5 +10,5 @@ data class Movie (
         var movieID:Int=0,
         var name:String,
         var description:String,
-        val movieCategoryID : Int
+        val movieCategoryName : String
         ):Serializable

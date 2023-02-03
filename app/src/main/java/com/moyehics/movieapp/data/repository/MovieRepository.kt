@@ -7,8 +7,9 @@ import com.moyehics.movieapp.data.room.entities.relations.MovieCategoryWithMovie
 
 interface MovieRepository {
      fun getMovieCategories(): LiveData<List<MovieCategory>>
-     fun getMoviesWithMovieCategory(movieCategoryID:Int):LiveData<List<MovieCategoryWithMovies>>
+     fun getMoviesWithMovieCategory(movieCategoryName:String):LiveData<List<MovieCategoryWithMovies>>
     suspend fun insertMovieCategory(movieCategory: MovieCategory)
     suspend fun insertMovie(movie: Movie)
     suspend fun deleteMovie(movie: Movie)
+
 }

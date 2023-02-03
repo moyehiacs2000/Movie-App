@@ -2,7 +2,6 @@ package com.moyehics.movieapp.di
 
 import android.content.Context
 import androidx.room.Room
-import com.moyehics.movieapp.data.room.MovieDao
 import com.moyehics.movieapp.data.room.MovieDatabase
 import dagger.Module
 import dagger.Provides

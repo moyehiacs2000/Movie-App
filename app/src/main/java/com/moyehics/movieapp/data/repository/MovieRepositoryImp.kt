@@ -13,8 +13,8 @@ class MovieRepositoryImp(
         return movieDao.getAllCategories();
     }
 
-    override  fun getMoviesWithMovieCategory(movieCategoryID: Int): LiveData<List<MovieCategoryWithMovies>> {
-        return movieDao.getMovieCategoryWithMovies(movieCategoryID);
+    override  fun getMoviesWithMovieCategory(movieCategoryName: String): LiveData<List<MovieCategoryWithMovies>> {
+        return movieDao.getMovieCategoryWithMovies(movieCategoryName);
     }
 
     override suspend fun insertMovieCategory(movieCategory: MovieCategory) {

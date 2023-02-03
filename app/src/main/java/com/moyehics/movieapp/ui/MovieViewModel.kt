@@ -1,7 +1,5 @@
 package com.moyehics.movieapp.ui
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.moyehics.movieapp.data.repository.MovieRepository
@@ -22,7 +20,7 @@ class MovieViewModel @Inject constructor(
             repository.insertMovieCategory(movieCategory)
         }
     }
-    fun getMoviesWithSpecificCategory(movieCategoryID:Int)=repository.getMoviesWithMovieCategory(movieCategoryID)
+    fun getMoviesWithSpecificCategory(movieCategoryName:String)=repository.getMoviesWithMovieCategory(movieCategoryName)
     fun insertMovie(movie: Movie){
         viewModelScope.launch {
             repository.insertMovie(movie)
@@ -33,6 +31,5 @@ class MovieViewModel @Inject constructor(
             repository.deleteMovie(movie)
         }
     }
-
 
 }

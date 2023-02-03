@@ -1,7 +1,6 @@
 package com.moyehics.movieapp.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.moyehics.movieapp.R
 import com.moyehics.movieapp.adapter.MovieCategoryAdapter
@@ -41,7 +38,7 @@ class MovieCategoriesListingFragment : Fragment() {
         observer()
         movieCategoryAdapter.setOnItemClicListener {
             val bundle = Bundle().apply {
-                putInt("categoryID", it.movieCategoryID)
+                putString("categoryName", it.movieCategoryName)
             }
             findNavController().navigate(R.id.action_movieCategoriesListingFragment_to_movieListingFragment,bundle)
         }
@@ -52,7 +49,7 @@ class MovieCategoriesListingFragment : Fragment() {
             bottomSheetDailog.setContentView(bindingBottomSheetDialog.root)
             bindingBottomSheetDialog.btnSave.setOnClickListener {
                 if(!bindingBottomSheetDialog.categoryNameEditeText.text.toString().isNullOrBlank()){
-                    viewModel.insertMovieCategory(MovieCategory(movieCategoryName = bindingBottomSheetDialog.categoryNameEditeText.text.toString()))
+                    viewModel.insertMovieCategory(MovieCategory(movieCategoryName = bindingBottomSheetDialog.categoryNameEditeText.text.toString().trimEnd()))
                     observer()
                     bottomSheetDailog.dismiss()
                     snackBar("New Category Added Successfully")
