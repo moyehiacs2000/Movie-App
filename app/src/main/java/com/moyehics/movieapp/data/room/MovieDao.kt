@@ -1,5 +1,6 @@
 package com.moyehics.movieapp.data.room
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.moyehics.movieapp.data.room.entities.Movie
 import com.moyehics.movieapp.data.room.entities.MovieCategory
@@ -10,7 +11,7 @@ interface MovieDao {
     suspend fun insertMovieCategory(movieCategory: MovieCategory)
 
     @Query("select * from moviecategory")
-    suspend fun getAllCategories():List<MovieCategory>
+    fun getAllCategories(): LiveData<List<MovieCategory>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovie(movie: Movie)
@@ -20,5 +21,5 @@ interface MovieDao {
 
     @Transaction
     @Query("Select * from moviecategory where movieCategoryID=:movieCategoryID")
-    suspend fun getMovieCategoryWithMovies(movieCategoryID:Int):List<MovieCategoryWithMovies>
+     fun getMovieCategoryWithMovies(movieCategoryID:Int):LiveData<List<MovieCategoryWithMovies>>
 }

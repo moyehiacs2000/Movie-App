@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <TextView
         android:id="@+id/txtNewCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Category"
-        android:fontFamily="@font/lobster"
+        android:fontFamily="@font/acme"
         android:textSize="18sp"
         android:textColor="@color/black"
         android:layout_marginTop="20dp"
@@ -21,7 +21,6 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="First Name"
-        app:hintAnimationEnabled="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="10dp"
@@ -37,7 +36,7 @@
             android:padding="20dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
-    <Button
+    <TextView
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,6 +45,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="10dp"
         android:text="Save"
+        android:textAlignment="center"
         android:padding="10dp"
         android:textColor="@color/teal_200"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
