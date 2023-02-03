@@ -8,8 +8,11 @@
         <entry key="..\:/MovieApp/app/src/main/res/layout/activity_main.xml" value="0.27291666666666664" />
         <entry key="..\:/MovieApp/app/src/main/res/layout/bottom_sheet_dialog.xml" value="0.27291666666666664" />
         <entry key="..\:/MovieApp/app/src/main/res/layout/fragment_movie_categories_listing.xml" value="0.27291666666666664" />
+        <entry key="..\:/MovieApp/app/src/main/res/layout/fragment_movie_detials.xml" value="0.27291666666666664" />
         <entry key="..\:/MovieApp/app/src/main/res/layout/fragment_movie_listing.xml" value="0.25885416666666666" />
-        <entry key="..\:/MovieApp/app/src/main/res/layout/movie_category_card_item.xml" value="0.33" />
+        <entry key="..\:/MovieApp/app/src/main/res/layout/movie_card_item.xml" value="0.27291666666666664" />
+        <entry key="..\:/MovieApp/app/src/main/res/layout/movie_card_iten.xml" value="0.271875" />
+        <entry key="..\:/MovieApp/app/src/main/res/layout/movie_category_card_item.xml" value="0.22" />
       </map>
     </option>
   </component>

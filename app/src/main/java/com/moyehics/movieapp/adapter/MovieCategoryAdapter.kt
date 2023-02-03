@@ -32,9 +32,16 @@ class MovieCategoryAdapter(val context: Context):
 
     override fun onBindViewHolder(holder: MovieCategoryViewHolder, position: Int) {
         holder.binding.txtMovieCategoryName.setText(differ.currentList[position].movieCategoryName)
+        holder.itemView.setOnClickListener {
+            onItemClickedListener?.let { it(differ.currentList[position]) }
+        }
     }
 
     override fun getItemCount(): Int =differ.currentList.size
 
+    private var onItemClickedListener:((MovieCategory) -> Unit)?=null
 
+    fun setOnItemClicListener(listener:(MovieCategory) -> Unit){
+        onItemClickedListener=listener
+    }
 }

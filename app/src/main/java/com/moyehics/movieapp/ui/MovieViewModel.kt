@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.moyehics.movieapp.data.repository.MovieRepository
+import com.moyehics.movieapp.data.room.entities.Movie
 import com.moyehics.movieapp.data.room.entities.MovieCategory
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -14,18 +15,22 @@ import javax.inject.Inject
 class MovieViewModel @Inject constructor(
     val repository: MovieRepository
 ):ViewModel() {
-    val _movieCategories = MutableLiveData<List<MovieCategory>>()
-    val movieCategories:LiveData<List<MovieCategory>>
-            get()=_movieCategories
-    fun getMovieCategories(){
-        viewModelScope.launch {
-            _movieCategories.value=repository.getMovieCategories()
-        }
-    }
+    fun getMovieCategories()=repository.getMovieCategories()
 
     fun insertMovieCategory(movieCategory: MovieCategory){
         viewModelScope.launch {
             repository.insertMovieCategory(movieCategory)
+        }
+    }
+    fun getMoviesWithSpecificCategory(movieCategoryID:Int)=repository.getMoviesWithMovieCategory(movieCategoryID)
+    fun insertMovie(movie: Movie){
+        viewModelScope.launch {
+            repository.insertMovie(movie)
+        }
+    }
+    fun deleteMovie(movie: Movie){
+        viewModelScope.launch {
+            repository.deleteMovie(movie)
         }
     }
 
