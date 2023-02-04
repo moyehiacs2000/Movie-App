@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:fontFamily="@font/acme"
-                android:text="All Catego"
+                android:text="@string/all_categories"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 app:layout_constraintTop_toTopOf="parent"
@@ -38,6 +38,7 @@
                 android:layout_height="@dimen/_22sdp"
                 android:layout_marginEnd="10dp"
                 android:src="@drawable/ic_add_24"
+                android:contentDescription="@string/add"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

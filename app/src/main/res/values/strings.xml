@@ -7,4 +7,11 @@
     <string name="done">done</string>
     <string name="movie_name">Movie Name</string>
     <string name="movie_description">Movie Description</string>
+    <string name="all_categories">All Categories</string>
+    <string name="all_movies">All Movies</string>
+    <string name="movie_name_">Movie Name :</string>
+    <string name="description">Description</string>
+    <string name="add">add</string>
+    <string name="edit">edit</string>
+    <string name="delete">delete</string>
 </resources>
