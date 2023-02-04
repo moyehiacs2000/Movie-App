@@ -15,9 +15,7 @@ import javax.inject.Singleton
 object RepositoryModule {
     @Provides
     @Singleton
-    fun provideMovieRepository(
-        movieDao: MovieDao
-    ):MovieRepository{
+    fun provideMovieRepository(movieDao: MovieDao):MovieRepository{
         return MovieRepositoryImp(movieDao)
     }
 }

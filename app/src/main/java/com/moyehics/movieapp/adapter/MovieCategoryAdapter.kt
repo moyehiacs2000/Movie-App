@@ -29,7 +29,7 @@ class MovieCategoryAdapter(val context: Context):
     inner class MovieCategoryViewHolder (val binding:MovieCategoryCardItemBinding ) : RecyclerView.ViewHolder(binding.root)
 
     override fun onBindViewHolder(holder: MovieCategoryViewHolder, position: Int) {
-        holder.binding.txtMovieCategoryName.setText(differ.currentList[position].movieCategoryName)
+        holder.binding.txtMovieCategoryName.text = differ.currentList[position].movieCategoryName
         holder.itemView.setOnClickListener {
             onItemClickedListener?.let { it(differ.currentList[position]) }
         }
@@ -39,7 +39,7 @@ class MovieCategoryAdapter(val context: Context):
 
     private var onItemClickedListener:((MovieCategory) -> Unit)?=null
 
-    fun setOnItemClicListener(listener:(MovieCategory) -> Unit){
+    fun setOnItemClickListener(listener:(MovieCategory) -> Unit){
         onItemClickedListener=listener
     }
 }

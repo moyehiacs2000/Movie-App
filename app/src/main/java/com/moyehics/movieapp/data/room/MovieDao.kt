@@ -19,6 +19,9 @@ interface MovieDao {
     @Delete
     suspend fun deleteMovie(movie:Movie)
 
+    /*
+    * adding transaction that will just make sure that there can't be any multi-threading issues here with this function
+    */
     @Transaction
     @Query("Select * from moviecategory where movieCategoryName=:movieCategoryName")
      fun getMovieCategoryWithMovies(movieCategoryName:String):LiveData<List<MovieCategoryWithMovies>>

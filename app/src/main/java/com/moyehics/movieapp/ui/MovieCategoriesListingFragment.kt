@@ -19,14 +19,13 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MovieCategoriesListingFragment : Fragment() {
-    val TAG:String="MovieCategoriesListingFragment"
-    lateinit var binding: FragmentMovieCategoriesListingBinding
+    private lateinit var binding: FragmentMovieCategoriesListingBinding
     private val viewModel:MovieViewModel by viewModels()
-    lateinit var movieCategoryAdapter: MovieCategoryAdapter
+    private lateinit var movieCategoryAdapter: MovieCategoryAdapter
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding =  FragmentMovieCategoriesListingBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -36,7 +35,7 @@ class MovieCategoriesListingFragment : Fragment() {
 
         setUpRecyclerView()
         observer()
-        movieCategoryAdapter.setOnItemClicListener {
+        movieCategoryAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
                 putString("categoryName", it.movieCategoryName)
             }
@@ -48,7 +47,7 @@ class MovieCategoriesListingFragment : Fragment() {
             val bindingBottomSheetDialog=BottomSheetDialogBinding.inflate(inflater)
             bottomSheetDailog.setContentView(bindingBottomSheetDialog.root)
             bindingBottomSheetDialog.btnSave.setOnClickListener {
-                if(!bindingBottomSheetDialog.categoryNameEditeText.text.toString().isNullOrBlank()){
+                if(bindingBottomSheetDialog.categoryNameEditeText.text.toString().isNotBlank()){
                     viewModel.insertMovieCategory(MovieCategory(movieCategoryName = bindingBottomSheetDialog.categoryNameEditeText.text.toString().trimEnd()))
                     observer()
                     bottomSheetDailog.dismiss()

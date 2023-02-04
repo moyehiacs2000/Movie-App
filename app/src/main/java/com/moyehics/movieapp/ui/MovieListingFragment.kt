@@ -18,17 +18,16 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MovieListingFragment : Fragment() {
-    val TAG:String="MovieListingFragment"
-    lateinit var binding:FragmentMovieListingBinding
+    private lateinit var binding:FragmentMovieListingBinding
     private val viewModel:MovieViewModel by viewModels()
-    lateinit var moviesAdapter:MoviesAdapter
-    val args : MovieListingFragmentArgs by navArgs()
-    var categoryName=""
+    private lateinit var moviesAdapter:MoviesAdapter
+    private val args : MovieListingFragmentArgs by navArgs()
+    private var categoryName=""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding=FragmentMovieListingBinding.inflate(layoutInflater)
         return binding.root
     }
