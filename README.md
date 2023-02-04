@@ -20,11 +20,7 @@ the available movies.
 ![er d](https://user-images.githubusercontent.com/71784734/216765042-ed145b3f-80d4-444f-9b7f-d0c4f92492bd.PNG)
 
 ### 📱 App Screens
-
-![1](https://user-images.githubusercontent.com/71784734/216765301-942e9641-8180-4c5f-896e-78edada7b13d.jpg)
-![2](https://user-images.githubusercontent.com/71784734/216765302-d61bd686-74b5-4295-a3bf-ca607dd4d8ca.jpg)
-![3](https://user-images.githubusercontent.com/71784734/216765306-7147bf9f-c27f-4f91-b392-add3c1e550ae.jpg)
-![4](https://user-images.githubusercontent.com/71784734/216765308-157d4d54-65d0-4f22-9c42-1df056e8dcff.jpg)
+![bg](https://user-images.githubusercontent.com/71784734/216767078-e6aeeb8d-6226-4add-8f5c-fa2f9091b5ed.png)
 
 #### Topics used for implementation.
 
