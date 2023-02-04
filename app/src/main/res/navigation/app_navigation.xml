@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/movieDetialsFragment"
-        android:name="com.moyehics.movieapp.ui.MovieDetialsFragment"
+        android:name="com.moyehics.movieapp.ui.MovieDetailsFragment"
         android:label="fragment_movie_detials"
         tools:layout="@layout/fragment_movie_detials" >
         <action

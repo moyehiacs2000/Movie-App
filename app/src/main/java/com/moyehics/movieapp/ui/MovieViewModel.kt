@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MovieViewModel @Inject constructor(
-    val repository: MovieRepository
+    private val repository: MovieRepository
 ):ViewModel() {
     fun getMovieCategories()=repository.getMovieCategories()
 

@@ -15,16 +15,16 @@ import com.moyehics.movieapp.util.snackBar
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MovieDetialsFragment : Fragment() {
-    lateinit var binding:FragmentMovieDetialsBinding
-    val args : MovieDetialsFragmentArgs by navArgs()
-    var categoryName=""
+class MovieDetailsFragment : Fragment() {
+    private lateinit var binding:FragmentMovieDetialsBinding
+    private val args : MovieDetailsFragmentArgs by navArgs()
+    private var categoryName=""
     var movie: Movie?=null
     private val viewModel:MovieViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentMovieDetialsBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -68,13 +68,13 @@ class MovieDetialsFragment : Fragment() {
         }
 
     }
-    fun validation():Boolean{
+    private fun validation():Boolean{
         var isValid = true
-        if(binding.movieNameEditeText.text.toString().isNullOrBlank()){
+        if(binding.movieNameEditeText.text.toString().isBlank()){
             binding.movieNameEditeText.error="Please Enter Movie Name"
             isValid=false
         }
-        if(binding.movieDescEditeText.text.toString().isNullOrBlank()){
+        if(binding.movieDescEditeText.text.toString().isBlank()){
             binding.movieDescEditeText.error="Please Enter Movie Description"
             isValid=false
         }

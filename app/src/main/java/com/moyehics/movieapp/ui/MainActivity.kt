@@ -27,6 +27,11 @@ class MainActivity : AppCompatActivity() {
            getDataFromJSON()
         }
     }
+
+
+    // parsing data from JSON and insert data into room database
+
+
     private fun getDataFromJSON(){
         val categories = loadJSONFromAssets()
         if (categories != null) {
@@ -63,6 +68,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+
+    // get JSON File From Assets
     private fun loadJSONFromAssets(): JSONArray? {
         val builder=StringBuilder()
         val inputStream:InputStream=assets.open("movies-data.json")
@@ -86,17 +94,22 @@ class MainActivity : AppCompatActivity() {
         cantLoadJSONFile()
         return null
     }
-    fun cantLoadJSONFile(){
+
+
+    private fun cantLoadJSONFile(){
         Toast.makeText(this,"Can't load Json File",Toast.LENGTH_LONG).show()
     }
-    fun saveFirstTime(){
+
+    // mark user that first time enter to app
+    // indicate that json file added to room data base
+    private fun saveFirstTime(){
         val sharedPref = this.getPreferences(MODE_PRIVATE)
         with(sharedPref.edit()) {
             putBoolean("firstTime", true)
             commit()
         }
     }
-    fun getFirstTimeBool(): Boolean {
+    private fun getFirstTimeBool(): Boolean {
         val sharedPref = getPreferences(MODE_PRIVATE)
         return sharedPref.getBoolean("firstTime", false)
     }
