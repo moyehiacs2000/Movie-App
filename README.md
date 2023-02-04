@@ -9,9 +9,9 @@ the available movies.
 - User can add a new category.
 - User can add, edit, delete movies.
 
-# [video link] (https://drive.google.com/file/d/1a4iALYkvhHNOrrb8aG04mbBOPGiFKEkT/view?usp=sharing)
+# [video link](https://drive.google.com/file/d/1a4iALYkvhHNOrrb8aG04mbBOPGiFKEkT/view?usp=sharing)
 
-# [apk link] (https://drive.google.com/file/d/1W5UZPbrFnGOYHjG4eD2mtO30TjWy-6Ej/view?usp=sharing)
+# [apk link](https://drive.google.com/file/d/1W5UZPbrFnGOYHjG4eD2mtO30TjWy-6Ej/view?usp=sharing)
 
 # mvvm Clean Architecture
 ![mvvm](https://user-images.githubusercontent.com/71784734/216765000-82ac3971-683e-45fe-83df-2c914890b93f.png)
